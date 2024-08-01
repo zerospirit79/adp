@@ -20,8 +20,8 @@ def compare_package_lists(packages1, packages2):
     set1 = {(pkg['name'], f"{pkg['version']}-{pkg['release']}") for pkg in packages1}
     set2 = {(pkg['name'], f"{pkg['version']}-{pkg['release']}") for pkg in packages2}
 
-    in_first_only = [{"name": pkg[0], "version-release": pkg[1]} for pkg in set1 - set2]
-    in_second_only = [{"name": pkg[0], "version-release": pkg[1]} for pkg in set2 - set1]
+    in_first_only = [{"name": pkg[0]} for pkg in set1 - set2]
+    in_second_only = [{"name": pkg[0]} for pkg in set2 - set1]
     greater_in_first = [{"name": pkg1['name'], "version-release": f"{pkg1['version']}-{pkg1['release']}"} 
                         for pkg1 in packages1 
                         for pkg2 in packages2 
